@@ -179,22 +179,21 @@
             <!-- Hero Avatar / Cyberpunk Infrastructure Visual -->
             <div class="lg:col-span-5 flex justify-center relative">
                 <div class="relative w-full max-w-md aspect-square rounded-3xl p-1 bg-gradient-to-br from-neonGreen via-cyberCyan to-cyberViolet shadow-2xl shadow-cyberViolet/20">
-                    <div class="w-full h-full bg-cardBg rounded-[22px] overflow-hidden relative flex flex-col items-center justify-center p-6 text-center group">
+                    <div class="w-full h-full bg-cardBg rounded-[22px] overflow-hidden relative flex items-center justify-center group">
                         
                         <!-- Grid Matrix Background inside card -->
-                        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#00ff88_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#00ff88_1px,transparent_1px)] [background-size:16px_16px] z-10 pointer-events-none"></div>
                         
-                        <!-- Glowing Terminal Graphic -->
-                        <div class="relative z-10 w-32 h-32 rounded-2xl bg-zinc-900 border border-neonGreen/40 flex items-center justify-center text-neonGreen text-5xl shadow-inner shadow-neonGreen/30 mb-6 group-hover:scale-110 transition-transform duration-500">
-                            <i class="fa-solid fa-terminal"></i>
-                        </div>
-
-                        <h3 class="relative z-10 text-xl font-bold text-white tracking-wide">Efraem Manurung</h3>
-                        <p class="relative z-10 text-xs font-mono text-cyberCyan mt-1">root@efraem-infra:~# uptime</p>
+                        <!-- User Profile Photo -->
+                        <img src="efraem.jpeg" alt="Efraem Manurung - Linux System Engineer" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:scale-105 transition-transform duration-500">
                         
-                        <div class="relative z-10 mt-6 flex items-center justify-center gap-3 text-xs font-mono text-zinc-400 bg-zinc-950/80 px-4 py-2 rounded-xl border border-zinc-800">
-                            <span class="w-2 h-2 rounded-full bg-neonGreen"></span>
-                            <span>Status: 99.99% Uptime</span>
+                        <!-- Overlay Badge / Info -->
+                        <div class="absolute bottom-4 left-4 right-4 z-20 bg-zinc-950/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-zinc-800 flex items-center justify-between text-xs font-mono">
+                            <div class="flex items-center gap-2 text-white">
+                                <span class="w-2 h-2 rounded-full bg-neonGreen animate-pulse"></span>
+                                <span>root@efraem-infra</span>
+                            </div>
+                            <span class="text-neonGreen">99.99% Uptime</span>
                         </div>
                     </div>
                 </div>
@@ -221,17 +220,14 @@
                 <div class="lg:col-span-5 relative">
                     <div class="absolute -top-6 -left-6 w-full h-full rounded-2xl border border-neonGreen/30 z-0"></div>
                     <div class="relative z-10 bg-cardBg border border-zinc-800 rounded-2xl p-6 shadow-2xl">
-                        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-zinc-900 relative flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-                            <!-- Linux Server Rack Icon / Avatar Simulation -->
-                            <div class="text-center z-20 space-y-4 p-6">
-                                <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-cyberCyan to-cyberViolet flex items-center justify-center text-white text-4xl shadow-lg">
-                                    <i class="fa-solid fa-server"></i>
-                                </div>
-                                <h4 class="text-lg font-bold text-white">System Architecture</h4>
-                                <p class="text-xs text-zinc-400 font-mono">High Performance & Scalable Linux Clusters</p>
-                            </div>
-                            <div class="absolute bottom-4 left-4 right-4 z-20 flex justify-between text-xs font-mono text-neonGreen">
+                        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-zinc-900 relative flex items-center justify-center group">
+                            
+                            <!-- User Profile Photo -->
+                            <img src="efraem.jpg" alt="Efraem Manurung" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:scale-105 transition-transform duration-500">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+                            
+                            <div class="absolute bottom-4 left-4 right-4 z-20 flex justify-between text-xs font-mono text-neonGreen bg-zinc-950/80 backdrop-blur-sm px-3 py-2 rounded-lg border border-zinc-800">
                                 <span>[KERNEL: 6.8-ARCH]</span>
                                 <span>[LOC: JAKARTA]</span>
                             </div>
