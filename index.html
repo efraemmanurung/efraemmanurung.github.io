@@ -1,200 +1,678 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth dark">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Efraem Manurung | Online Portfolio</title>
-<meta name="description" content="Online portfolio of Efraem Manurung, IT Infrastructure Engineer.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#05080f; --ink:#e8edf7; --muted:#a3b0c7; --acc:#38b6ff;
-  --b1:#1b3fd8; --b2:#4f7bff; --b3:#9ec5ff;
-  --head:"Outfit","Segoe UI",Arial,sans-serif;
-  --mono:"Space Mono","Courier New",monospace;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.7 var(--head);overflow-x:hidden}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.28;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-a{color:var(--acc)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--b3);outline-offset:3px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efraem Manurung | Linux System Engineer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neonGreen: '#00ff88',
+                        cyberCyan: '#00d2ff',
+                        cyberViolet: '#7c3aed',
+                        darkBg: '#0a0b10',
+                        cardBg: '#12141c',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #0a0b10;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Noise Grain Overlay */
+        .noise-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
 
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:8px;padding:22px 6vw;font:400 .9rem var(--mono);background:linear-gradient(var(--bg),rgba(5,8,15,0))}
-nav .brand{background:var(--acc);color:#04101c;font-weight:700;padding:8px 22px;margin-right:18px;text-decoration:none;text-transform:uppercase}
-nav a.l{color:var(--ink);text-decoration:none;text-transform:uppercase;padding:6px 18px}
-nav a.l:hover,nav a.l.on{color:var(--acc)}
-nav .rule{flex:1;height:2px;background:#fff;position:relative;margin-left:16px;min-width:20px}
-nav .rule::after,.line::after{content:"";position:absolute;right:-6px;top:-5px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid #fff}
-.line{height:2px;background:#fff;position:relative;flex:1}
-.line.rev::after{right:auto;left:-6px}
-.line::before{content:"";position:absolute;left:-6px;top:-5px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid #fff}
-.line.noend::after{display:none}
+        /* Glowing Gradient Orbs */
+        .glow-orb-1 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(0,255,136,0.18) 0%, rgba(124,58,237,0.05) 70%, transparent 100%);
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(80px);
+            pointer-events: none;
+        }
 
-/* sections */
-.sec{position:relative;min-height:100vh;padding:150px 8vw 90px;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
-.sec>*{position:relative;z-index:2}
-.sec::before{content:"";position:absolute;inset:0;z-index:0;filter:blur(30px)}
-.g1::before{background:radial-gradient(40% 45% at 30% 0%,rgba(79,123,255,.75),transparent 70%),radial-gradient(35% 50% at 0% 75%,rgba(56,182,255,.55),transparent 70%),radial-gradient(40% 50% at 100% 35%,rgba(27,63,216,.85),transparent 70%)}
-.g2::before{background:radial-gradient(45% 40% at 20% 10%,rgba(56,182,255,.5),transparent 70%),radial-gradient(40% 45% at 95% 15%,rgba(27,63,216,.8),transparent 70%)}
-.g3::before{background:radial-gradient(40% 45% at 100% 60%,rgba(79,123,255,.7),transparent 70%),radial-gradient(40% 40% at 0% 15%,rgba(27,63,216,.65),transparent 70%)}
-.g4::before{background:radial-gradient(45% 45% at 55% 0%,rgba(56,182,255,.55),transparent 70%),radial-gradient(40% 45% at 5% 90%,rgba(27,63,216,.7),transparent 70%)}
-.g5::before{background:radial-gradient(40% 40% at 25% 0%,rgba(56,182,255,.55),transparent 70%),radial-gradient(35% 45% at 90% 5%,rgba(27,63,216,.9),transparent 70%)}
+        .glow-orb-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,210,255,0.18) 0%, rgba(124,58,237,0.05) 70%, transparent 100%);
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(90px);
+            pointer-events: none;
+        }
 
-.hello{font:italic 700 1.25rem var(--mono);color:var(--acc);margin:0 0 14px}
-h1{font:800 clamp(3rem,7.5vw,6.2rem)/1.02 var(--head);margin:0 0 24px;letter-spacing:-.02em;color:#e3e6ea;max-width:9em}
-.tag{display:inline-block;background:var(--acc);color:#04101c;font:italic 700 1.05rem var(--mono);padding:6px 10px;text-transform:uppercase;margin-bottom:26px}
-.lead{max-width:30em;color:var(--ink);font-size:1.15rem;margin:0}
-.foot{display:flex;align-items:center;gap:28px;margin-top:70px;font:400 1.35rem var(--mono);text-transform:uppercase;white-space:nowrap}
-.photo{position:absolute!important;right:0;top:0;bottom:0;width:44%;z-index:1!important;
-  -webkit-mask-image:linear-gradient(to right,transparent,#000 40%);mask-image:linear-gradient(to right,transparent,#000 40%)}
-.photo img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(1) contrast(1.1)}
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0b10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ff88;
+        }
 
-h2{font:800 clamp(2.2rem,5vw,3.6rem)/1.05 var(--head);margin:0 0 6px;text-transform:uppercase}
-.sub{font:italic 700 1.1rem var(--mono);color:var(--acc);margin:0 0 48px}
-.center{text-align:center}
-
-/* about */
-.two{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
-.two p{margin:0 0 16px;color:var(--ink)}
-.stats{display:grid;gap:18px}
-.stat{border:1px solid rgba(255,255,255,.28);padding:18px 22px;background:rgba(5,8,15,.45)}
-.stat b{display:block;font:700 1.5rem var(--head);color:var(--b3)}
-.stat span{font:.85rem var(--mono);color:var(--muted);text-transform:uppercase}
-
-/* timeline */
-.item{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:26px 0 26px 30px;border-left:2px solid #fff;position:relative}
-.item::before{content:"";position:absolute;left:-7px;top:36px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid #fff}
-.item .when{font:.95rem var(--mono);color:var(--acc);text-transform:uppercase}
-.item h3{margin:0 0 6px;font:700 1.35rem var(--head)}
-.item p{margin:0;color:var(--muted);max-width:40em}
-
-/* projects */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{border:1px solid rgba(255,255,255,.3);background:rgba(5,8,15,.5);padding:28px;min-height:260px;display:flex;flex-direction:column;backdrop-filter:blur(6px)}
-.card .ph{height:6px;background:linear-gradient(90deg,var(--b1),var(--acc));margin-bottom:22px}
-.card h3{font:700 1.35rem var(--head);margin:0 0 8px}
-.card p{margin:0 0 auto;color:var(--muted)}
-.card small{font:.82rem var(--mono);color:var(--acc);text-transform:uppercase;margin-top:18px}
-
-/* contact */
-.icons{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center;margin-top:20px}
-.icons svg{width:72px;height:72px;stroke:var(--acc);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.icons h3{font:700 1.4rem var(--head);margin:14px 0 14px}
-.icons p{margin:0;font-size:.98rem}
-.icons a{color:var(--ink);text-decoration:none}
-.icons a:hover{color:var(--acc);text-decoration:underline}
-.big{font:800 clamp(2.4rem,9.5vw,8.2rem)/1 var(--head);text-transform:uppercase;text-align:center;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.7);margin:44px 0 10px;letter-spacing:-.01em;white-space:nowrap}
-.bar{display:flex;align-items:center;gap:28px}
-.bar span{font:400 1.3rem var(--mono);text-transform:uppercase;white-space:nowrap}
-
-@media (max-width:900px){
-  nav{flex-wrap:wrap;padding:14px 5vw;gap:2px}
-  nav .brand{margin-right:6px;padding:6px 12px}
-  nav a.l{padding:4px 8px;font-size:.8rem}
-  nav .rule{display:none}
-  .sec{padding:130px 6vw 70px;min-height:auto}
-  .photo{position:relative!important;width:100%;height:340px;order:-1;margin:0 0 20px;-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent);mask-image:linear-gradient(to bottom,#000 60%,transparent)}
-  #home{padding-top:110px}
-  .two,.cards,.icons{grid-template-columns:1fr}
-  .item{grid-template-columns:1fr;gap:4px}
-  .foot span,.bar span{font-size:1rem}
-}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+        /* Outline text effect */
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+            color: transparent;
+        }
+    </style>
 </head>
-<body>
-<nav aria-label="Main">
-  <a class="brand" href="#home">Online Portofolio</a>
-  <a class="l" href="#about">About me</a>
-  <a class="l" href="#education">Education</a>
-  <a class="l" href="#experience">Experience</a>
-  <a class="l" href="#projects">Project</a>
-  <a class="l on" href="#contact">Contact</a>
-  <span class="rule"></span>
-</nav>
+<body class="noise-bg min-h-screen relative selection:bg-neonGreen selection:text-black">
 
-<main>
-<!-- HOME -->
-<section class="sec g1" id="home">
-  <div class="photo"><img src="photo.jpg" alt="Efraem Manurung" onerror="this.parentNode.style.display='none'"></div>
-  <p class="hello">Hello !!!</p>
-  <h1>I'm Efraem Manurung</h1>
-  <div><span class="tag">IT Infrastructure Engineer</span></div>
-  <p class="lead">I design, run and secure the networks, servers and cloud platforms that teams depend on. I like systems that are stable, documented and easy to maintain.</p>
-  <div class="foot"><span class="line"></span><span>Portofolio <span id="y1">2026</span></span></div>
-</section>
+    <!-- Ambient Glow Orbs -->
+    <div class="glow-orb-1 top-20 left-10"></div>
+    <div class="glow-orb-2 top-1/2 right-10"></div>
+    <div class="glow-orb-1 bottom-10 left-1/3"></div>
 
-<!-- ABOUT -->
-<section class="sec g2" id="about">
-  <h2>About me</h2>
-  <p class="sub">Who I am</p>
-  <div class="two">
-    <div>
-      <p>I'm an IT infrastructure engineer focused on reliable and secure systems. My work covers network design, server and virtualization management, cloud platforms, backup and monitoring.</p>
-      <p>I automate repeat work with scripts and infrastructure as code, so the team can spend its time on what matters.</p>
-    </div>
-    <div class="stats">
-      <div class="stat"><b>Networks</b><span>VLAN, routing, firewall, VPN</span></div>
-      <div class="stat"><b>Servers &amp; Cloud</b><span>Windows, Linux, VMware, AWS, Azure</span></div>
-      <div class="stat"><b>Operations</b><span>Monitoring, backup, automation</span></div>
-    </div>
-  </div>
-</section>
+    <!-- Header / Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-darkBg/80 border-b border-zinc-800/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo / Name -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-neonGreen via-cyberCyan to-cyberViolet flex items-center justify-center text-black font-extrabold text-lg shadow-lg shadow-neonGreen/20 group-hover:scale-105 transition-transform">
+                    EM
+                </div>
+                <div>
+                    <span class="font-extrabold tracking-wider text-white text-lg block leading-tight group-hover:text-neonGreen transition-colors">EFRAEM MANURUNG</span>
+                    <span class="text-xs text-zinc-400 font-mono tracking-widest">SYSTEM ENGINEER</span>
+                </div>
+            </a>
 
-<!-- EDUCATION -->
-<section class="sec g3" id="education">
-  <h2>Education</h2>
-  <p class="sub">Where I studied</p>
-  <div class="item"><div class="when">2016 to 2020</div><div><h3>Bachelor of Information Technology</h3><p>University name. Focus on computer networks and systems administration.</p></div></div>
-  <div class="item"><div class="when">Certifications</div><div><h3>CCNA, AWS Cloud Practitioner, Azure Fundamentals</h3><p>Replace with the certifications you hold.</p></div></div>
-</section>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-6 text-sm font-medium">
+                <a href="#home" class="nav-link px-3 py-2 rounded-lg text-neonGreen font-semibold transition-colors">HOME</a>
+                <a href="#about" class="nav-link px-3 py-2 rounded-lg text-zinc-300 hover:text-neonGreen hover:bg-zinc-900/60 transition-all">ABOUT ME</a>
+                <a href="#education" class="nav-link px-3 py-2 rounded-lg text-zinc-300 hover:text-neonGreen hover:bg-zinc-900/60 transition-all">EDUCATION</a>
+                <a href="#experience" class="nav-link px-3 py-2 rounded-lg text-zinc-300 hover:text-neonGreen hover:bg-zinc-900/60 transition-all">EXPERIENCE</a>
+                <a href="#project" class="nav-link px-3 py-2 rounded-lg text-zinc-300 hover:text-neonGreen hover:bg-zinc-900/60 transition-all">PROJECT</a>
+                <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-zinc-300 hover:text-neonGreen hover:bg-zinc-900/60 transition-all">CONTACT</a>
+            </nav>
 
-<!-- EXPERIENCE -->
-<section class="sec g4" id="experience">
-  <h2>Experience</h2>
-  <p class="sub">Where I've worked</p>
-  <div class="item"><div class="when">2023 to present</div><div><h3>IT Infrastructure Engineer, Company Name</h3><p>Run production networks, servers and virtualization. Automate routine tasks and lead incident response.</p></div></div>
-  <div class="item"><div class="when">2020 to 2023</div><div><h3>System Administrator, Company Name</h3><p>Managed user accounts, endpoints, backups and server maintenance.</p></div></div>
-</section>
+            <!-- GitHub Deploy Status & Mobile Menu Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="https://github.com" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700/60 text-xs font-mono text-zinc-300 hover:border-neonGreen hover:text-neonGreen transition-all">
+                    <i class="fa-brands fa-github text-sm"></i> github.io
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-zinc-300 hover:text-white p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
 
-<!-- PROJECTS -->
-<section class="sec g3" id="projects">
-  <h2>Project</h2>
-  <p class="sub">Selected work</p>
-  <div class="cards">
-    <article class="card"><div class="ph"></div><h3>Office network redesign</h3><p>Separated staff, server and guest traffic with VLANs and firewall rules.</p><small>VLAN / pfSense</small></article>
-    <article class="card"><div class="ph"></div><h3>Virtualization migration</h3><p>Moved legacy physical servers onto a virtual cluster with tested restores.</p><small>Proxmox / ZFS / Ansible</small></article>
-    <article class="card"><div class="ph"></div><h3>Monitoring and alerting</h3><p>Dashboards and alerts that flag problems before users notice them.</p><small>Zabbix / Grafana</small></article>
-  </div>
-</section>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-b border-zinc-800 px-6 py-4 space-y-2">
+            <a href="#home" class="block py-2 text-neonGreen font-semibold">HOME</a>
+            <a href="#about" class="block py-2 text-zinc-300 hover:text-neonGreen">ABOUT ME</a>
+            <a href="#education" class="block py-2 text-zinc-300 hover:text-neonGreen">EDUCATION</a>
+            <a href="#experience" class="block py-2 text-zinc-300 hover:text-neonGreen">EXPERIENCE</a>
+            <a href="#project" class="block py-2 text-zinc-300 hover:text-neonGreen">PROJECT</a>
+            <a href="#contact" class="block py-2 text-zinc-300 hover:text-neonGreen">CONTACT</a>
+        </div>
+    </header>
 
-<!-- CONTACT -->
-<section class="sec g5" id="contact">
-  <h2 class="center">Get in touch</h2>
-  <p class="sub center" style="margin-bottom:30px">Let's Work Together</p>
-  <div class="icons">
-    <div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 10l8 2 3 11-5 4a30 30 0 0015 15l4-5 11 3 2 8a6 6 0 01-6 6C30 54 10 34 10 16a6 6 0 016-6z"/><path d="M40 12a14 14 0 0112 12M40 20a7 7 0 016 6"/></svg><h3>Phone</h3><p>+62 812-0000-0000</p></div>
-    <div><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="16" width="48" height="34" rx="2"/><path d="M8 18l24 18 24-18M8 50l18-17M56 50L38 33"/></svg><h3>Email</h3><p><a href="mailto:your.email@example.com">your.email@example.com</a></p></div>
-    <div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 54s-16-16-16-28a16 16 0 0132 0c0 12-16 28-16 28z"/><circle cx="32" cy="26" r="6"/></svg><h3>Location</h3><p>Jakarta, Indonesia</p></div>
-    <div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 54S8 40 8 24a13 13 0 0124-7 13 13 0 0124 7c0 16-24 30-24 30z"/></svg><h3>Social Media</h3><p><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a><br><a href="https://github.com/your-username">GitHub</a></p></div>
-  </div>
-  <div style="margin-top:60px" class="line noend"></div>
-  <div class="big" aria-hidden="true">Efraem Manurung</div>
-  <div class="bar"><span class="line"></span><span>Portofolio <span id="y2">2026</span></span><span class="line"></span></div>
-</section>
-</main>
+    <!-- Home / Hero Section -->
+    <section id="home" class="relative min-h-[calc(100vh-80px)] flex items-center py-16 px-6 z-10">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Text Content -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neonGreen/10 border border-neonGreen/30 text-neonGreen text-xs font-mono tracking-widest uppercase">
+                    <span class="w-2 h-2 rounded-full bg-neonGreen animate-pulse"></span>
+                    Hello !!!
+                </div>
 
-<script>
-var y=new Date().getFullYear();
-document.getElementById("y1").textContent=y;document.getElementById("y2").textContent=y;
-var links=[].slice.call(document.querySelectorAll("nav a.l")),secs=links.map(function(a){return document.querySelector(a.getAttribute("href"))});
-function spy(){var p=window.scrollY+160,c=-1;secs.forEach(function(s,i){if(s.offsetTop<=p)c=i});links.forEach(function(a,i){a.classList.toggle("on",i===c)})}
-window.addEventListener("scroll",spy,{passive:true});spy();
-</script>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-none">
+                    I'm <span class="bg-gradient-to-r from-neonGreen via-cyberCyan to-cyberViolet bg-clip-text text-transparent">Efraem Manurung</span>
+                </h1>
+
+                <div class="inline-block px-4 py-2 rounded-xl bg-gradient-to-r from-neonGreen/20 via-cyberCyan/20 to-cyberViolet/20 border border-neonGreen/40 text-neonGreen font-mono text-sm sm:text-base tracking-wider font-bold shadow-lg">
+                    LINUX SYSTEM ENGINEER & INFRASTRUCTURE ARCHITECT
+                </div>
+
+                <p class="text-zinc-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+                    Spesialis dalam manajemen server Linux tingkat lanjut, otomasi infrastruktur skala besar, containerization, dan pembangunan arsitektur high-availability yang aman, cepat, serta handal untuk beban kerja produksi kritis.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#contact" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-neonGreen to-cyberCyan text-black font-bold text-sm tracking-wider uppercase shadow-lg shadow-neonGreen/25 hover:opacity-90 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Get In Touch
+                    </a>
+                    <a href="#project" class="px-7 py-3.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white font-semibold text-sm tracking-wider uppercase hover:border-neonGreen hover:text-neonGreen transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-terminal"></i> View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Avatar / Cyberpunk Infrastructure Visual -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative w-full max-w-md aspect-square rounded-3xl p-1 bg-gradient-to-br from-neonGreen via-cyberCyan to-cyberViolet shadow-2xl shadow-cyberViolet/20">
+                    <div class="w-full h-full bg-cardBg rounded-[22px] overflow-hidden relative flex flex-col items-center justify-center p-6 text-center group">
+                        
+                        <!-- Grid Matrix Background inside card -->
+                        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#00ff88_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                        
+                        <!-- Glowing Terminal Graphic -->
+                        <div class="relative z-10 w-32 h-32 rounded-2xl bg-zinc-900 border border-neonGreen/40 flex items-center justify-center text-neonGreen text-5xl shadow-inner shadow-neonGreen/30 mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-terminal"></i>
+                        </div>
+
+                        <h3 class="relative z-10 text-xl font-bold text-white tracking-wide">Efraem Manurung</h3>
+                        <p class="relative z-10 text-xs font-mono text-cyberCyan mt-1">root@efraem-infra:~# uptime</p>
+                        
+                        <div class="relative z-10 mt-6 flex items-center justify-center gap-3 text-xs font-mono text-zinc-400 bg-zinc-950/80 px-4 py-2 rounded-xl border border-zinc-800">
+                            <span class="w-2 h-2 rounded-full bg-neonGreen"></span>
+                            <span>Status: 99.99% Uptime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom decorative line -->
+        <div class="absolute bottom-4 left-6 right-6 hidden md:flex items-center justify-between text-xs font-mono text-zinc-500 border-t border-zinc-800/80 pt-4">
+            <div class="flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-neonGreen"></span>
+                <span>PORTFOLIO 2026 // LINUX INFRASTRUCTURE</span>
+            </div>
+            <div>[ SCROLL DOWN TO EXPLORE ]</div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 px-6 relative z-10 border-t border-zinc-800/40 bg-zinc-950/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Profile Image / Graphic Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="absolute -top-6 -left-6 w-full h-full rounded-2xl border border-neonGreen/30 z-0"></div>
+                    <div class="relative z-10 bg-cardBg border border-zinc-800 rounded-2xl p-6 shadow-2xl">
+                        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-zinc-900 relative flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
+                            <!-- Linux Server Rack Icon / Avatar Simulation -->
+                            <div class="text-center z-20 space-y-4 p-6">
+                                <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-cyberCyan to-cyberViolet flex items-center justify-center text-white text-4xl shadow-lg">
+                                    <i class="fa-solid fa-server"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white">System Architecture</h4>
+                                <p class="text-xs text-zinc-400 font-mono">High Performance & Scalable Linux Clusters</p>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 z-20 flex justify-between text-xs font-mono text-neonGreen">
+                                <span>[KERNEL: 6.8-ARCH]</span>
+                                <span>[LOC: JAKARTA]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Biography Details -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs font-mono text-neonGreen tracking-widest uppercase">// WHO AM I</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">MY BIOGRAPHY</h2>
+                        <div class="w-24 h-1 bg-gradient-to-r from-neonGreen via-cyberCyan to-cyberViolet rounded-full"></div>
+                    </div>
+
+                    <p class="text-zinc-300 leading-relaxed text-base sm:text-lg">
+                        Halo! Saya Efraem Manurung, seorang Linux System Engineer dan Infrastructure Architect yang berbasis di Jakarta, Indonesia. Saya mendedikasikan karir saya untuk membangun, mengoptimalkan, dan mengamankan infrastruktur server berbasis Linux untuk perusahaan teknologi skala menengah hingga enterprise.
+                    </p>
+
+                    <p class="text-zinc-400 leading-relaxed text-sm sm:text-base">
+                        Berpengalaman dalam manajemen sistem operasi Linux kernel, otomasi provisioning dengan Ansible & Terraform, manajemen container menggunakan Docker & Kubernetes, serta perancangan sistem CI/CD pipeline yang efisien dan tangguh.
+                    </p>
+
+                    <!-- Skill & Interest Pill Badges -->
+                    <div class="pt-4 space-y-3">
+                        <h3 class="text-sm font-mono text-cyberCyan tracking-wider uppercase font-bold">Skill & Interest</h3>
+                        <div class="flex flex-wrap gap-2.5">
+                            <span class="px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono hover:border-neonGreen hover:text-neonGreen transition-all">Linux Kernel Tuning</span>
+                            <span class="px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono hover:border-neonGreen hover:text-neonGreen transition-all">Docker & Kubernetes</span>
+                            <span class="px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono hover:border-neonGreen hover:text-neonGreen transition-all">Ansible & Terraform</span>
+                            <span class="px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono hover:border-neonGreen hover:text-neonGreen transition-all">Bash Scripting</span>
+                            <span class="px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono hover:border-neonGreen hover:text-neonGreen transition-all">CI/CD Pipelines</span>
+                            <span class="px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono hover:border-neonGreen hover:text-neonGreen transition-all">Network Security</span>
+                            <span class="px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono hover:border-neonGreen hover:text-neonGreen transition-all">Cloud Infrastructure</span>
+                            <span class="px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono hover:border-neonGreen hover:text-neonGreen transition-all">Prometheus & Grafana</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 px-6 relative z-10 border-t border-zinc-800/40">
+        <div class="max-w-7xl mx-auto relative">
+            
+            <!-- Large Background Year Watermark -->
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 select-none pointer-events-none text-6xl sm:text-9xl font-black text-outline opacity-30 z-0">
+                2014 - 2019
+            </div>
+
+            <div class="relative z-10 space-y-12">
+                <div class="text-center space-y-2">
+                    <span class="text-xs font-mono text-neonGreen tracking-widest uppercase">// ACADEMIC BACKGROUND</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">EDUCATION</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-neonGreen via-cyberCyan to-cyberViolet mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                    
+                    <!-- Education Card 1 -->
+                    <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 hover:border-neonGreen/60 transition-all group flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono text-neonGreen px-3 py-1 rounded-full bg-neonGreen/10 border border-neonGreen/20">2014 - 2017</span>
+                                <i class="fa-solid fa-graduation-cap text-zinc-500 group-hover:text-neonGreen transition-colors text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-neonGreen transition-colors">SMK Teknik Komputer & Jaringan</h3>
+                            <p class="text-xs font-mono text-zinc-400">SMK Negeri 1 Jakarta | Jurusan TKJ</p>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                Mempelajari dasar-dasar perakitan komputer, administrasi jaringan LAN/WAN, routing cisco, dan pengenalan awal sistem operasi Linux Debian & Ubuntu Server.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-zinc-800/60 mt-6 flex items-center justify-between text-xs font-mono text-zinc-500">
+                            <span>Status: Lulus (Graduated)</span>
+                            <span class="text-neonGreen">GPA: 3.85 / 4.0</span>
+                        </div>
+                    </div>
+
+                    <!-- Education Card 2 -->
+                    <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 hover:border-cyberCyan/60 transition-all group flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono text-cyberCyan px-3 py-1 rounded-full bg-cyberCyan/10 border border-cyberCyan/20">2017 - 2021</span>
+                                <i class="fa-solid fa-graduation-cap text-zinc-500 group-hover:text-cyberCyan transition-colors text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-cyberCyan transition-colors">Sarjana Teknik Informatika</h3>
+                            <p class="text-xs font-mono text-zinc-400">Universitas Bina Nusantara | Bachelor of Computer Science</p>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                Fokus mendalam pada sistem terdistribusi, arsitektur jaringan komputer, keamanan informasi, serta skripsi tentang optimasi kinerja kernel Linux untuk server high-load.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-zinc-800/60 mt-6 flex items-center justify-between text-xs font-mono text-zinc-500">
+                            <span>Status: Lulus (Graduated)</span>
+                            <span class="text-cyberCyan">GPA: 3.78 / 4.0</span>
+                        </div>
+                    </div>
+
+                    <!-- Education Card 3 -->
+                    <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 hover:border-cyberViolet/60 transition-all group flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono text-cyberViolet px-3 py-1 rounded-full bg-cyberViolet/10 border border-cyberViolet/20">Certifications</span>
+                                <i class="fa-solid fa-award text-zinc-500 group-hover:text-cyberViolet transition-colors text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-cyberViolet transition-colors">Professional Certifications</h3>
+                            <p class="text-xs font-mono text-zinc-400">Linux Foundation & Cloud Native</p>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                • LFCS (Linux Foundation Certified System Administrator)<br>
+                                • CKA (Certified Kubernetes Administrator)<br>
+                                • AWS Certified Solutions Architect
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-zinc-800/60 mt-6 flex items-center justify-between text-xs font-mono text-zinc-500">
+                            <span>Valid Until: 2028</span>
+                            <span class="text-cyberViolet">Verified</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-6 relative z-10 border-t border-zinc-800/40 bg-zinc-950/40">
+        <div class="max-w-7xl mx-auto relative">
+            
+            <!-- Large Background Year Watermark -->
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 select-none pointer-events-none text-6xl sm:text-9xl font-black text-outline opacity-30 z-0">
+                2020 - 2026
+            </div>
+
+            <div class="relative z-10 space-y-12">
+                <div class="text-center space-y-2">
+                    <span class="text-xs font-mono text-neonGreen tracking-widest uppercase">// CAREER PATH</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">EXPERIENCE</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-neonGreen via-cyberCyan to-cyberViolet mx-auto rounded-full"></div>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-6 pt-6">
+                    
+                    <!-- Experience Item 1 -->
+                    <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 sm:p-8 hover:border-neonGreen/60 transition-all flex flex-col md:flex-row gap-6 items-start">
+                        <div class="p-4 rounded-xl bg-neonGreen/10 border border-neonGreen/30 text-neonGreen text-xl">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div class="space-y-3 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <h3 class="text-xl font-bold text-white">Senior Linux System Engineer</h3>
+                                <span class="text-xs font-mono text-neonGreen px-3 py-1 rounded-full bg-neonGreen/10 border border-neonGreen/20 w-fit">2023 - Present</span>
+                            </div>
+                            <p class="text-xs font-mono text-cyberCyan">PT. Infrastruktur Digital Nusantara • Jakarta</p>
+                            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                                Memimpin tim infrastruktur dalam mengelola lebih dari 250+ instance server Linux (RHEL, Ubuntu, AlmaLinux). Bertanggung jawab atas migrasi sistem ke arsitektur containerized Kubernetes, optimasi performa kernel, serta penerapan zero-downtime deployment policies.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 2 -->
+                    <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 sm:p-8 hover:border-cyberCyan/60 transition-all flex flex-col md:flex-row gap-6 items-start">
+                        <div class="p-4 rounded-xl bg-cyberCyan/10 border border-cyberCyan/30 text-cyberCyan text-xl">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <div class="space-y-3 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <h3 class="text-xl font-bold text-white">DevOps & Infrastructure Specialist</h3>
+                                <span class="text-xs font-mono text-cyberCyan px-3 py-1 rounded-full bg-cyberCyan/10 border border-cyberCyan/20 w-fit">2021 - 2023</span>
+                            </div>
+                            <p class="text-xs font-mono text-cyberCyan">CloudSec Solutions Indonesia • Jakarta</p>
+                            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                                Mengembangkan otomasi deployment menggunakan Ansible dan Terraform. Menerapkan monitoring real-time server menggunakan Prometheus dan Grafana. Mengurangi insiden downtime server hingga 85% melalui proactive alerting scripts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 3 -->
+                    <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 sm:p-8 hover:border-cyberViolet/60 transition-all flex flex-col md:flex-row gap-6 items-start">
+                        <div class="p-4 rounded-xl bg-cyberViolet/10 border border-cyberViolet/30 text-cyberViolet text-xl">
+                            <i class="fa-solid fa-terminal"></i>
+                        </div>
+                        <div class="space-y-3 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <h3 class="text-xl font-bold text-white">Junior Linux Administrator</h3>
+                                <span class="text-xs font-mono text-cyberViolet px-3 py-1 rounded-full bg-cyberViolet/10 border border-cyberViolet/20 w-fit">2020 - 2021</span>
+                            </div>
+                            <p class="text-xs font-mono text-cyberViolet">PT. Cybernetika Solusi Mandiri • Jakarta</p>
+                            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                                Mengelola konfigurasi web server (Nginx/Apache), database PostgreSQL & MySQL, backup harian otomatis dengan Bash script, serta penanganan tiket troubleshoot jaringan dan sistem operasi Linux klien.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="project" class="py-24 px-6 relative z-10 border-t border-zinc-800/40">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="text-center space-y-2">
+                <span class="text-xs font-mono text-neonGreen tracking-widest uppercase">// OPEN SOURCE & INFRASTRUCTURE</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">FEATURED PROJECTS</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-neonGreen via-cyberCyan to-cyberViolet mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+                
+                <!-- Project Card 1 -->
+                <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 hover:border-neonGreen/60 transition-all group flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-neonGreen/10 border border-neonGreen/30 flex items-center justify-center text-neonGreen text-xl">
+                                <i class="fa-solid fa-cubes"></i>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-400">Kubernetes</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-neonGreen transition-colors">K8s Production Auto-Scaler</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Cluster Kubernetes mandiri dengan automasi Helm charts dan Prometheus Operator untuk auto-scaling pod berbasis beban traffic jaringan real-time.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300">Kubernetes</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300">Helm</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300">Prometheus</span>
+                        </div>
+                    </div>
+                    <div class="pt-6 border-t border-zinc-800/60 mt-6 flex items-center justify-between">
+                        <a href="https://github.com" target="_blank" class="text-xs font-mono text-neonGreen hover:underline flex items-center gap-1.5">
+                            <i class="fa-brands fa-github">></i> View Repository
+                        </a>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-500"></i>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 hover:border-cyberCyan/60 transition-all group flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-cyberCyan/10 border border-cyberCyan/30 flex items-center justify-center text-cyberCyan text-xl">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-400">Security</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-cyberCyan transition-colors">Linux Hardening Ansible Role</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Playbook Ansible open-source untuk otomatisasi hardening OS Linux (CIS Benchmark), SSH hardening, fail2ban setup, dan firewall UFW rules.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300">Ansible</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300">Bash</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300">Linux</span>
+                        </div>
+                    </div>
+                    <div class="pt-6 border-t border-zinc-800/60 mt-6 flex items-center justify-between">
+                        <a href="https://github.com" target="_blank" class="text-xs font-mono text-cyberCyan hover:underline flex items-center gap-1.5">
+                            <i class="fa-brands fa-github"></i> View Repository
+                        </a>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-500"></i>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 hover:border-cyberViolet/60 transition-all group flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-cyberViolet/10 border border-cyberViolet/30 flex items-center justify-center text-cyberViolet text-xl">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-400">Automation</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-cyberViolet transition-colors">HA Proxy & Keepalived Cluster</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Setup high-availability load balancer dengan HAProxy dan Keepalived untuk failover otomatis pada web server cluster berbeban tinggi.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300">HAProxy</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300">Keepalived</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300">Networking</span>
+                        </div>
+                    </div>
+                    <div class="pt-6 border-t border-zinc-800/60 mt-6 flex items-center justify-between">
+                        <a href="https://github.com" target="_blank" class="text-xs font-mono text-cyberViolet hover:underline flex items-center gap-1.5">
+                            <i class="fa-brands fa-github"></i> View Repository
+                        </a>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-500"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 relative z-10 border-t border-zinc-800/40 bg-zinc-950/60">
+        <div class="max-w-7xl mx-auto space-y-16">
+            
+            <div class="text-center space-y-2">
+                <span class="text-xs font-mono text-neonGreen tracking-widest uppercase">// GET IN TOUCH</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">LET'S WORK TOGETHER</h2>
+                <p class="text-zinc-400 text-sm sm:text-base pt-2">Tertarik berkolaborasi atau mendiskusikan infrastruktur server dan DevOps? Hubungi saya.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-neonGreen via-cyberCyan to-cyberViolet mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <!-- Contact Info Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Phone -->
+                <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 text-center space-y-4 hover:border-neonGreen/60 transition-all">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-neonGreen/10 border border-neonGreen/30 flex items-center justify-center text-neonGreen text-xl">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3 class="font-bold text-white">Phone & Mobile</h3>
+                    <p class="text-xs font-mono text-zinc-400">+62 812-3456-7890<br>+62 821-9876-5432</p>
+                </div>
+
+                <!-- Email -->
+                <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 text-center space-y-4 hover:border-cyberCyan/60 transition-all">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-cyberCyan/10 border border-cyberCyan/30 flex items-center justify-center text-cyberCyan text-xl">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="font-bold text-white">Email & Website</h3>
+                    <p class="text-xs font-mono text-zinc-400">efraem.manurung@linux.id<br>efraemmanurung.github.io</p>
+                </div>
+
+                <!-- Address -->
+                <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 text-center space-y-4 hover:border-cyberViolet/60 transition-all">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-cyberViolet/10 border border-cyberViolet/30 flex items-center justify-center text-cyberViolet text-xl">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="font-bold text-white">Address</h3>
+                    <p class="text-xs font-mono text-zinc-400">Jl. Sudirman Kav. 52-53<br>Central Jakarta, Indonesia</p>
+                </div>
+
+                <!-- Social Media -->
+                <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 text-center space-y-4 hover:border-neonGreen/60 transition-all">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-neonGreen/10 border border-neonGreen/30 flex items-center justify-center text-neonGreen text-xl">
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                    <h3 class="font-bold text-white">Social Media</h3>
+                    <div class="flex justify-center gap-3 pt-1 text-zinc-400">
+                        <a href="https://github.com" target="_blank" class="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:text-neonGreen hover:border-neonGreen transition-all"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:text-cyberCyan hover:border-cyberCyan transition-all"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://telegram.org" target="_blank" class="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:text-cyberViolet hover:border-cyberViolet transition-all"><i class="fa-brands fa-telegram"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GitHub Pages Deployment Guide Box -->
+            <div class="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-neonGreen/10 border border-neonGreen/30 flex items-center justify-center text-neonGreen">
+                        <i class="fa-brands fa-github text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Panduan Deploy ke GitHub Pages (github.io)</h3>
+                        <p class="text-xs text-zinc-400 font-mono">Langkah mudah publikasi portofolio online gratis</p>
+                    </div>
+                </div>
+                <div class="bg-zinc-950 rounded-xl p-4 font-mono text-xs sm:text-sm text-zinc-300 overflow-x-auto space-y-2 border border-zinc-800/80">
+                    <p class="text-zinc-500"># 1. Buat repository baru di GitHub dengan nama <span class="text-neonGreen">efraemmanurung.github.io</span></p>
+                    <p class="text-zinc-500"># 2. Simpan file ini dengan nama <span class="text-neonGreen">index.html</span> dan jalankan perintah terminal:</p>
+                    <p class="text-cyan-400">git init</p>
+                    <p class="text-cyan-400">git add index.html</p>
+                    <p class="text-cyan-400">git commit -m "Initial commit: Efraem Manurung Portfolio"</p>
+                    <p class="text-cyan-400">git branch -M main</p>
+                    <p class="text-cyan-400">git remote add origin https://github.com/efraemmanurung/efraemmanurung.github.io.git</p>
+                    <p class="text-cyan-400">git push -u origin main</p>
+                    <p class="text-zinc-500"># 3. Website Anda langsung online di <span class="text-neonGreen">https://efraemmanurung.github.io</span> 🚀</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-800/80 py-12 px-6 relative z-10 bg-darkBg text-center">
+        <div class="max-w-7xl mx-auto space-y-6">
+            <h2 class="text-2xl font-black tracking-widest text-white">EFRAEM MANURUNG</h2>
+            <p class="text-xs font-mono text-zinc-500">PORTFOLIO 2026 // LINUX SYSTEM ENGINEER & INFRASTRUCTURE ARCHITECT</p>
+            <div class="flex justify-center gap-6 text-sm text-zinc-400">
+                <a href="#home" class="hover:text-neonGreen transition-colors">Home</a>
+                <a href="#about" class="hover:text-neonGreen transition-colors">About</a>
+                <a href="#education" class="hover:text-neonGreen transition-colors">Education</a>
+                <a href="#experience" class="hover:text-neonGreen transition-colors">Experience</a>
+                <a href="#project" class="hover:text-neonGreen transition-colors">Project</a>
+                <a href="#contact" class="hover:text-neonGreen transition-colors">Contact</a>
+            </div>
+            <p class="text-xs text-zinc-600 font-mono pt-4 border-t border-zinc-900">
+                &copy; 2026 Efraem Manurung. All rights reserved. Built with Tailwind CSS & Cyberpunk Aesthetic.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Active link highlighting on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-neonGreen', 'font-semibold');
+                link.classList.add('text-zinc-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-neonGreen', 'font-semibold');
+                    link.classList.remove('text-zinc-300');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
