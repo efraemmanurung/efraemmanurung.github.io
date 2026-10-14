@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Efraem Manurung | Online Portfolio</title>
+<meta name="description" content="Online portfolio of Efraem Manurung, IT Infrastructure Engineer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05080f; --ink:#e8edf7; --muted:#a3b0c7; --acc:#38b6ff;
+  --b1:#1b3fd8; --b2:#4f7bff; --b3:#9ec5ff;
+  --head:"Outfit","Segoe UI",Arial,sans-serif;
+  --mono:"Space Mono","Courier New",monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.7 var(--head);overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.28;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--b3);outline-offset:3px}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:8px;padding:22px 6vw;font:400 .9rem var(--mono);background:linear-gradient(var(--bg),rgba(5,8,15,0))}
+nav .brand{background:var(--acc);color:#04101c;font-weight:700;padding:8px 22px;margin-right:18px;text-decoration:none;text-transform:uppercase}
+nav a.l{color:var(--ink);text-decoration:none;text-transform:uppercase;padding:6px 18px}
+nav a.l:hover,nav a.l.on{color:var(--acc)}
+nav .rule{flex:1;height:2px;background:#fff;position:relative;margin-left:16px;min-width:20px}
+nav .rule::after,.line::after{content:"";position:absolute;right:-6px;top:-5px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid #fff}
+.line{height:2px;background:#fff;position:relative;flex:1}
+.line.rev::after{right:auto;left:-6px}
+.line::before{content:"";position:absolute;left:-6px;top:-5px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid #fff}
+.line.noend::after{display:none}
+
+/* sections */
+.sec{position:relative;min-height:100vh;padding:150px 8vw 90px;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.sec>*{position:relative;z-index:2}
+.sec::before{content:"";position:absolute;inset:0;z-index:0;filter:blur(30px)}
+.g1::before{background:radial-gradient(40% 45% at 30% 0%,rgba(79,123,255,.75),transparent 70%),radial-gradient(35% 50% at 0% 75%,rgba(56,182,255,.55),transparent 70%),radial-gradient(40% 50% at 100% 35%,rgba(27,63,216,.85),transparent 70%)}
+.g2::before{background:radial-gradient(45% 40% at 20% 10%,rgba(56,182,255,.5),transparent 70%),radial-gradient(40% 45% at 95% 15%,rgba(27,63,216,.8),transparent 70%)}
+.g3::before{background:radial-gradient(40% 45% at 100% 60%,rgba(79,123,255,.7),transparent 70%),radial-gradient(40% 40% at 0% 15%,rgba(27,63,216,.65),transparent 70%)}
+.g4::before{background:radial-gradient(45% 45% at 55% 0%,rgba(56,182,255,.55),transparent 70%),radial-gradient(40% 45% at 5% 90%,rgba(27,63,216,.7),transparent 70%)}
+.g5::before{background:radial-gradient(40% 40% at 25% 0%,rgba(56,182,255,.55),transparent 70%),radial-gradient(35% 45% at 90% 5%,rgba(27,63,216,.9),transparent 70%)}
+
+.hello{font:italic 700 1.25rem var(--mono);color:var(--acc);margin:0 0 14px}
+h1{font:800 clamp(3rem,7.5vw,6.2rem)/1.02 var(--head);margin:0 0 24px;letter-spacing:-.02em;color:#e3e6ea;max-width:9em}
+.tag{display:inline-block;background:var(--acc);color:#04101c;font:italic 700 1.05rem var(--mono);padding:6px 10px;text-transform:uppercase;margin-bottom:26px}
+.lead{max-width:30em;color:var(--ink);font-size:1.15rem;margin:0}
+.foot{display:flex;align-items:center;gap:28px;margin-top:70px;font:400 1.35rem var(--mono);text-transform:uppercase;white-space:nowrap}
+.photo{position:absolute!important;right:0;top:0;bottom:0;width:44%;z-index:1!important;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 40%);mask-image:linear-gradient(to right,transparent,#000 40%)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(1) contrast(1.1)}
+
+h2{font:800 clamp(2.2rem,5vw,3.6rem)/1.05 var(--head);margin:0 0 6px;text-transform:uppercase}
+.sub{font:italic 700 1.1rem var(--mono);color:var(--acc);margin:0 0 48px}
+.center{text-align:center}
+
+/* about */
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+.two p{margin:0 0 16px;color:var(--ink)}
+.stats{display:grid;gap:18px}
+.stat{border:1px solid rgba(255,255,255,.28);padding:18px 22px;background:rgba(5,8,15,.45)}
+.stat b{display:block;font:700 1.5rem var(--head);color:var(--b3)}
+.stat span{font:.85rem var(--mono);color:var(--muted);text-transform:uppercase}
+
+/* timeline */
+.item{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:26px 0 26px 30px;border-left:2px solid #fff;position:relative}
+.item::before{content:"";position:absolute;left:-7px;top:36px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid #fff}
+.item .when{font:.95rem var(--mono);color:var(--acc);text-transform:uppercase}
+.item h3{margin:0 0 6px;font:700 1.35rem var(--head)}
+.item p{margin:0;color:var(--muted);max-width:40em}
+
+/* projects */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{border:1px solid rgba(255,255,255,.3);background:rgba(5,8,15,.5);padding:28px;min-height:260px;display:flex;flex-direction:column;backdrop-filter:blur(6px)}
+.card .ph{height:6px;background:linear-gradient(90deg,var(--b1),var(--acc));margin-bottom:22px}
+.card h3{font:700 1.35rem var(--head);margin:0 0 8px}
+.card p{margin:0 0 auto;color:var(--muted)}
+.card small{font:.82rem var(--mono);color:var(--acc);text-transform:uppercase;margin-top:18px}
+
+/* contact */
+.icons{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center;margin-top:20px}
+.icons svg{width:72px;height:72px;stroke:var(--acc);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.icons h3{font:700 1.4rem var(--head);margin:14px 0 14px}
+.icons p{margin:0;font-size:.98rem}
+.icons a{color:var(--ink);text-decoration:none}
+.icons a:hover{color:var(--acc);text-decoration:underline}
+.big{font:800 clamp(2.4rem,9.5vw,8.2rem)/1 var(--head);text-transform:uppercase;text-align:center;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.7);margin:44px 0 10px;letter-spacing:-.01em;white-space:nowrap}
+.bar{display:flex;align-items:center;gap:28px}
+.bar span{font:400 1.3rem var(--mono);text-transform:uppercase;white-space:nowrap}
+
+@media (max-width:900px){
+  nav{flex-wrap:wrap;padding:14px 5vw;gap:2px}
+  nav .brand{margin-right:6px;padding:6px 12px}
+  nav a.l{padding:4px 8px;font-size:.8rem}
+  nav .rule{display:none}
+  .sec{padding:130px 6vw 70px;min-height:auto}
+  .photo{position:relative!important;width:100%;height:340px;order:-1;margin:0 0 20px;-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent);mask-image:linear-gradient(to bottom,#000 60%,transparent)}
+  #home{padding-top:110px}
+  .two,.cards,.icons{grid-template-columns:1fr}
+  .item{grid-template-columns:1fr;gap:4px}
+  .foot span,.bar span{font-size:1rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <a class="brand" href="#home">Online Portofolio</a>
+  <a class="l" href="#about">About me</a>
+  <a class="l" href="#education">Education</a>
+  <a class="l" href="#experience">Experience</a>
+  <a class="l" href="#projects">Project</a>
+  <a class="l on" href="#contact">Contact</a>
+  <span class="rule"></span>
+</nav>
+
+<main>
+<!-- HOME -->
+<section class="sec g1" id="home">
+  <div class="photo"><img src="photo.jpg" alt="Efraem Manurung" onerror="this.parentNode.style.display='none'"></div>
+  <p class="hello">Hello !!!</p>
+  <h1>I'm Efraem Manurung</h1>
+  <div><span class="tag">IT Infrastructure Engineer</span></div>
+  <p class="lead">I design, run and secure the networks, servers and cloud platforms that teams depend on. I like systems that are stable, documented and easy to maintain.</p>
+  <div class="foot"><span class="line"></span><span>Portofolio <span id="y1">2026</span></span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec g2" id="about">
+  <h2>About me</h2>
+  <p class="sub">Who I am</p>
+  <div class="two">
+    <div>
+      <p>I'm an IT infrastructure engineer focused on reliable and secure systems. My work covers network design, server and virtualization management, cloud platforms, backup and monitoring.</p>
+      <p>I automate repeat work with scripts and infrastructure as code, so the team can spend its time on what matters.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>Networks</b><span>VLAN, routing, firewall, VPN</span></div>
+      <div class="stat"><b>Servers &amp; Cloud</b><span>Windows, Linux, VMware, AWS, Azure</span></div>
+      <div class="stat"><b>Operations</b><span>Monitoring, backup, automation</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="sec g3" id="education">
+  <h2>Education</h2>
+  <p class="sub">Where I studied</p>
+  <div class="item"><div class="when">2016 to 2020</div><div><h3>Bachelor of Information Technology</h3><p>University name. Focus on computer networks and systems administration.</p></div></div>
+  <div class="item"><div class="when">Certifications</div><div><h3>CCNA, AWS Cloud Practitioner, Azure Fundamentals</h3><p>Replace with the certifications you hold.</p></div></div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="sec g4" id="experience">
+  <h2>Experience</h2>
+  <p class="sub">Where I've worked</p>
+  <div class="item"><div class="when">2023 to present</div><div><h3>IT Infrastructure Engineer, Company Name</h3><p>Run production networks, servers and virtualization. Automate routine tasks and lead incident response.</p></div></div>
+  <div class="item"><div class="when">2020 to 2023</div><div><h3>System Administrator, Company Name</h3><p>Managed user accounts, endpoints, backups and server maintenance.</p></div></div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec g3" id="projects">
+  <h2>Project</h2>
+  <p class="sub">Selected work</p>
+  <div class="cards">
+    <article class="card"><div class="ph"></div><h3>Office network redesign</h3><p>Separated staff, server and guest traffic with VLANs and firewall rules.</p><small>VLAN / pfSense</small></article>
+    <article class="card"><div class="ph"></div><h3>Virtualization migration</h3><p>Moved legacy physical servers onto a virtual cluster with tested restores.</p><small>Proxmox / ZFS / Ansible</small></article>
+    <article class="card"><div class="ph"></div><h3>Monitoring and alerting</h3><p>Dashboards and alerts that flag problems before users notice them.</p><small>Zabbix / Grafana</small></article>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec g5" id="contact">
+  <h2 class="center">Get in touch</h2>
+  <p class="sub center" style="margin-bottom:30px">Let's Work Together</p>
+  <div class="icons">
+    <div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 10l8 2 3 11-5 4a30 30 0 0015 15l4-5 11 3 2 8a6 6 0 01-6 6C30 54 10 34 10 16a6 6 0 016-6z"/><path d="M40 12a14 14 0 0112 12M40 20a7 7 0 016 6"/></svg><h3>Phone</h3><p>+62 812-0000-0000</p></div>
+    <div><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="16" width="48" height="34" rx="2"/><path d="M8 18l24 18 24-18M8 50l18-17M56 50L38 33"/></svg><h3>Email</h3><p><a href="mailto:your.email@example.com">your.email@example.com</a></p></div>
+    <div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 54s-16-16-16-28a16 16 0 0132 0c0 12-16 28-16 28z"/><circle cx="32" cy="26" r="6"/></svg><h3>Location</h3><p>Jakarta, Indonesia</p></div>
+    <div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 54S8 40 8 24a13 13 0 0124-7 13 13 0 0124 7c0 16-24 30-24 30z"/></svg><h3>Social Media</h3><p><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a><br><a href="https://github.com/your-username">GitHub</a></p></div>
+  </div>
+  <div style="margin-top:60px" class="line noend"></div>
+  <div class="big" aria-hidden="true">Efraem Manurung</div>
+  <div class="bar"><span class="line"></span><span>Portofolio <span id="y2">2026</span></span><span class="line"></span></div>
+</section>
+</main>
+
+<script>
+var y=new Date().getFullYear();
+document.getElementById("y1").textContent=y;document.getElementById("y2").textContent=y;
+var links=[].slice.call(document.querySelectorAll("nav a.l")),secs=links.map(function(a){return document.querySelector(a.getAttribute("href"))});
+function spy(){var p=window.scrollY+160,c=-1;secs.forEach(function(s,i){if(s.offsetTop<=p)c=i});links.forEach(function(a,i){a.classList.toggle("on",i===c)})}
+window.addEventListener("scroll",spy,{passive:true});spy();
+</script>
+</body>
+</html>
